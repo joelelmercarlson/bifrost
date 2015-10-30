@@ -1,0 +1,10 @@
+{
+  "vertexshader": "shaders/tex.v.glsl",
+  "fragmentshader": "shaders/tex.f.glsl",
+  "uvmap": "images/metal.bmp",
+  "wavefront": "obj/monkey.obj",
+  "worldposition": "0 0 0",
+  "lightposition": "4.0 4.0 4.0",
+  "lightcolor": "1.0 1.0 1.0",
+  "uuid": "d0db253f-71ac-4c90-83a6-0ecb41ca6845"
+}
