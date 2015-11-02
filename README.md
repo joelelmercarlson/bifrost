@@ -13,21 +13,20 @@ JsonLoader.hs   -- JSON loader all Assets are described in JSON
 
 ObjLoader.hs    -- OBJ loader for Blender exports
 
-ObjTest.hs      -- Test Program for Loaders
-
-ObjUtil.hs      -- Utilities to convert data
+ObjUtil.hs      -- Utilities for OBJ
 
 roll.hs         -- example random in haskell
 
-json/           -- json definition of Assets
+json/           -- Assets JSON
 
-obj/            -- wavefront obj
+obj/            -- wavefront OBJ
 
-images/         -- uvmap in .bmp
+images/         -- chrome.png
 
 shaders/        -- opengl glsl (lighting, textures)
 
+
 Requires:
-cabal install glfw-b OpenGL GLUtil Linear aeson
+  GLFW-b OpenGL GLUtil Linear aeson
 
 Author: "Joel E Carlson" <joel.elmer.carlson@gmail.com>
