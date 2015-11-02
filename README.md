@@ -1,30 +1,27 @@
 OpenGL in Haskell
 -----------------
 
-Control.hs      -- Mouse/Keyboard movement
+app/Main.hs       -- main
 
-Draw2.hs        -- Texture Drawing from Wavefront .OBJ models
+images/           -- chrome.png
 
-Entity.hs       -- Moveable State
+json/             -- Assets JSON
 
-Main.hs         -- main
+obj/              -- wavefront OBJ
 
-JsonLoader.hs   -- JSON loader all Assets are described in JSON
+shaders/          -- opengl glsl (lighting, textures)
 
-ObjLoader.hs    -- OBJ loader for Blender exports
+src/Control.hs    -- Mouse/Keyboard movement
 
-ObjUtil.hs      -- Utilities for OBJ
+src/Draw2.hs      -- Texture Drawing from Wavefront .OBJ models
 
-roll.hs         -- example random in haskell
+src/Entity.hs     -- Moveable State
 
-json/           -- Assets JSON
+src/JsonLoader.hs -- JSON loader all Assets are described in JSON
 
-obj/            -- wavefront OBJ
+src/ObjLoader.hs  -- OBJ loader for Blender exports
 
-images/         -- chrome.png
-
-shaders/        -- opengl glsl (lighting, textures)
-
+src/ObjUtil.hs    -- Utilities for OBJ
 
 Requires:
   GLFW-b OpenGL GLUtil Linear aeson
