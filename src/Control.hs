@@ -12,7 +12,6 @@ import qualified Graphics.UI.GLFW as GLFW
 import qualified Linear as L
 import           Linear.Vector ((^*))
 --
-
 import Entity
 
 movement :: GLFW.Window -> Entity -> IO Entity

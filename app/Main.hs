@@ -11,9 +11,8 @@ import Control.Monad (unless, when)
 import System.Environment
 import System.Exit
 import System.IO
-
 -- import all OpenGL libraries qualified
-import qualified Graphics.UI.GLFW          as GLFW
+import qualified Graphics.UI.GLFW as GLFW
 --
 import Draw2
 import Control (movement)
