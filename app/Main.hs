@@ -13,12 +13,7 @@ import System.Exit
 import System.IO
 
 -- import all OpenGL libraries qualified
-import qualified Graphics.Rendering.OpenGL as GL
 import qualified Graphics.UI.GLFW          as GLFW
-import           Graphics.Rendering.OpenGL (($=))
-import qualified Graphics.GLUtil           as U
-import qualified Graphics.GLUtil.Camera3D  as U
-import qualified Linear as L
 --
 import Draw2
 import Control (movement)

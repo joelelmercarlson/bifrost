@@ -1,5 +1,4 @@
 o Use Blender smart UV project to have enough vt
-    Otherwise bake2v, bake3v can be used on simple objects
 o Export OBJ
   . Apply Modifiers
   . unselect Include Edges
