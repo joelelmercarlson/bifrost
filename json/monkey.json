@@ -1,7 +1,7 @@
 {
   "vertexshader": "shaders/tex.v.glsl",
   "fragmentshader": "shaders/tex.f.glsl",
-  "uvmap": "images/metal.bmp",
+  "uvmap": "images/funky.png",
   "wavefront": "obj/monkey.obj",
   "worldposition": "0 0 0",
   "lightposition": "4.0 4.0 4.0",
