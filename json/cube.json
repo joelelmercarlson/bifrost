@@ -5,6 +5,6 @@
   "wavefront": "obj/cube.obj",
   "worldposition": "0.0 0.0 1.0",
   "lightposition": "4.0 4.0 4.0",
-  "lightcolor": "0.5 1.0 0.5",
+  "lightcolor": "1.0 1.0 1.0",
   "uuid": "2ae962fc-6f4a-4d44-89e0-e5b74c46a7cc"
 }
