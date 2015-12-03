@@ -123,12 +123,22 @@ initResources fp = do
 mvpM :: Int -> Int -> Entity -> Resources -> L.M44 GL.GLfloat
 mvpM width height e r = projection L.!*! view L.!*! model 
   where
-    model      = L.mkTransformationMat eye3 (worldPosition r)
-    view       = U.camMatrix cam
+    model      = modelM (worldPosition r)
+    view       = viewM e
     projection = U.projectionMatrix (pi/4) aspect 0.1 100
     aspect     = fromIntegral width / fromIntegral height
+
+-- | Model
+modelM :: L.V3 GL.GLfloat -> L.M44 GL.GLfloat
+modelM = L.mkTransformationMat eye3
+  where
     eye3       = L.V3 (L.V3 1 0 0) (L.V3 0 1 0) (L.V3 0 0 1)
-    cam        = U.dolly (realToFrac <$> position e) U.fpsCamera
+
+-- | View
+viewM :: Entity -> L.M44 GL.GLfloat
+viewM e = U.camMatrix cam
+  where
+    cam = U.dolly (realToFrac <$> position e) U.fpsCamera
 
 loadTex :: FilePath -> IO GL.TextureObject
 loadTex f = do
