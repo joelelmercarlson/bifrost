@@ -69,4 +69,4 @@ executable bifrost
 
 source-repository head
   type:     git
-  location: https://github.com/joelelmercarlson/bifrost
+  location: https://github.com/joelelmercarlson/bifrost.git
