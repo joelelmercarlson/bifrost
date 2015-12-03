@@ -2,4 +2,4 @@
 #
 # bifrost-exe json/asset.json
 #
-stack exec bifrost-exe $1
+stack exec bifrost $1
