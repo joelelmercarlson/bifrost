@@ -1,17 +1,15 @@
---
--- http://www.tomdalling.com/blog/modern-opengl/04-cameras-vectors-and-input/
---
 module Control (movement) where
+
+import qualified Graphics.UI.GLFW as GLFW
 
 import Control.Applicative
 import Data.Fixed
 import Data.Maybe
 
--- import all OpenGL libraries qualified
-import qualified Graphics.UI.GLFW as GLFW
-import qualified Linear as L
-import           Linear.Vector ((^*))
---
+import Control.Lens
+import Linear
+import Linear.Vector
+
 import Entity
 
 movement :: GLFW.Window -> Entity -> IO Entity
@@ -31,13 +29,13 @@ movement w e = do
       pitch = clampPitch (xAngle e) (ms * realToFrac mx)
       yaw   = clampYaw   (yAngle e) (ms * realToFrac my)
       -- | orientation
-      qx = L.axisAngle (L.V3 1 0 0) pitch -- x-axis
-      qy = L.axisAngle (L.V3 0 1 0) yaw   -- y-axis
+      qx = axisAngle (V3 1 0 0) pitch -- x-axis
+      qy = axisAngle (V3 0 1 0) yaw   -- y-axis
       q  = qy * qx
       -- | position
-      direction = L.rotate q (L.V3 0 0 (-1)) ^* (sp * dt * realToFrac cy)
-      right     = L.rotate q (L.V3 1 0 0)    ^* (sp * dt * realToFrac cx)
-      current   = position e + direction + right
+      direction = rotate q (V3 0 0 (-1)) ^* (sp * dt * realToFrac cy)
+      right     = rotate q (V3 1 0 0)    ^* (sp * dt * realToFrac cx)
+      current   = clamp (position e + direction + right)
 
   return Entity { lasttime = t
                 , position = current
@@ -48,22 +46,46 @@ movement w e = do
                 , mouseSpeed = ms
                 }
 
--- | clampPitch, clampYaw normalize angles
+-- | clamp world coordinates
+clamp :: V3 Float -> V3 Float  
+clamp v = V3 x' y' z'
+  where
+    maxX = 10.0
+    maxY = 2.0
+    maxZ = 10.0
+    x = v ^. _x
+    y = v ^. _y
+    z = v ^. _z
+    x'
+      | x > maxX    = maxX
+      | x < (-maxX) = -maxX
+      | otherwise   = x
+    y'
+      | y > maxY    = maxY
+      | y < (-maxY) = -maxY
+      | otherwise   = y
+    z'
+      | z > maxZ    = maxZ
+      | z < (-maxZ) = -maxZ
+      | otherwise   = z
+
+-- | clampPitch normalize angle
 clampPitch :: Float -> Float -> Float
 clampPitch xa right = pitch
   where
     x     = mod' (xa + right) maxX
-    maxX  = 360
+    maxX  = 360.0
     pitch
       | x > maxX    = x - maxX
       | x < (-maxX) = x + maxX
       | otherwise   = x
 
+-- | clampYaw normalize angle
 clampYaw :: Float -> Float -> Float
 clampYaw ya up = yaw
   where
     y    = ya + up
-    maxY = 85
+    maxY = 85.0
     yaw
       | y > maxY    = maxY
       | y < (-maxY) = -maxY
