@@ -3,12 +3,12 @@ module Control (movement) where
 import qualified Graphics.UI.GLFW as GLFW
 
 import Control.Applicative
-import Data.Fixed
-import Data.Maybe
+import Data.Fixed (mod')
+import Data.Maybe (fromMaybe)
 
-import Control.Lens
+import Control.Lens ((^.))
 import Linear
-import Linear.Vector
+import Linear.Vector ((^*))
 
 import Entity
 
