@@ -2,12 +2,12 @@ name:                bifrost
 version:             0.1.0.0
 synopsis:            Modern OpenGL in Haskell
 description:         Please see README.md
-homepage:            http://github.com/joelelmercarlson/bifrost#readme
+homepage:            http://github.com/joelelmercarlson/bifrost#README.md
 license:             MIT
 license-file:        LICENSE
 author:              Joel E Carlson
 maintainer:          joel.elmer.carlson@gmail.com
-copyright:           (c) 2015 Joel E Carlson
+copyright:           (c) 2016 Joel E Carlson
 category:            Graphics
 build-type:          Simple
 -- extra-source-files:
