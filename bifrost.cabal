@@ -4,7 +4,7 @@ synopsis:            Modern OpenGL in Haskell
 description:         Please see README.md
 homepage:            http://github.com/joelelmercarlson/bifrost#README.md
 license:             MIT
-license-file:        LICENSE
+license-file:        LICENSE.md
 author:              Joel E Carlson
 maintainer:          joel.elmer.carlson@gmail.com
 copyright:           (c) 2016 Joel E Carlson
