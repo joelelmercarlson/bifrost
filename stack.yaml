@@ -1,5 +1,11 @@
 resolver: lts-4.1
 packages: ['.']
-extra-deps: []
 flags: {}
 extra-package-dbs: []
+extra-deps: 
+  - GLUtil-0.8.8
+  - hpp-0.3.0.0
+  - OpenGL-2.13.2.1
+  - GLURaw-1.5.0.3
+  - OpenGLRaw-2.6.1.1
+
