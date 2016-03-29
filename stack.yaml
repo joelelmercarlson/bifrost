@@ -1,4 +1,4 @@
-resolver: lts-4.1
+resolver: lts-3.11
 packages: ['.']
 flags: {}
 extra-package-dbs: []
@@ -8,4 +8,6 @@ extra-deps:
   - OpenGL-2.13.2.1
   - GLURaw-1.5.0.3
   - OpenGLRaw-2.6.1.1
-
+  - GLFW-b-1.4.7.3
+  - ObjectName-1.1.0.1
+  - bindings-GLFW-3.1.1.4
