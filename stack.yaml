@@ -3,11 +3,5 @@ packages: ['.']
 flags: {}
 extra-package-dbs: []
 extra-deps: 
-  - GLUtil-0.8.8
+  - GLUtil-0.9.0
   - hpp-0.3.0.0
-#  - OpenGL-2.13.2.1
-#  - GLURaw-1.5.0.3
-#  - OpenGLRaw-2.6.1.1
-#  - GLFW-b-1.4.7.3
-#  - ObjectName-1.1.0.1
-#  - bindings-GLFW-3.1.1.4
