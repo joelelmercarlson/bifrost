@@ -26,4 +26,7 @@ src/ObjUtil.hs    -- Utilities for OBJ
 Requires:
   GLFW-b OpenGL GLUtil Linear aeson
 
+Ubuntu:
+  freeglut3-dev
+
 Author: "Joel E Carlson" <joel.elmer.carlson@gmail.com>
