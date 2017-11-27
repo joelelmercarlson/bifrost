@@ -2,6 +2,11 @@
 
 Modern OpenGL OBJ viewer written in haskell.
 
+### Screenshot
+![monkey.png](images/monkey.png)
+
+### Code
+
 ```
 app/Main.hs       -- main
 images/           -- chrome.png
