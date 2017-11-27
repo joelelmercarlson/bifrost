@@ -1,7 +1,7 @@
 
 The MIT License (MIT)
 
-Copyright (c) 2016 Joel E Carlson
+Copyright (c) 2017 Joel E Carlson
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
