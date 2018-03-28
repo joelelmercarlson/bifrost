@@ -10,5 +10,5 @@ module Main where
   main :: IO ()
   main = do
     run <- callCommand "stack build"
-    run <- callCommand "stack exec bifrost json/monkey.json"
+    run <- callCommand "stack exec Main"
     putStrLn $ show run
