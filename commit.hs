@@ -10,18 +10,19 @@ module Main where
   import Data.Maybe
   import Data.Time.Clock.POSIX
 
+  -- | url = git@github.optum.com:/fecompute/org.git
   main :: IO ()
   main = do
     xs <- getArgs
     tm <- round `fmap` getPOSIXTime
 
-    let cmd = "git commit -m \"" ++ (fromMaybe (tt tm) (nth 1 xs)) ++ "\""
+    let cmd = "git commit -m \"" ++ fromMaybe (tt tm) (nth 1 xs) ++ "\""
 
     run <- callCommand "git status"
     run <- callCommand "git add ."
     run <- callCommand cmd
     run <- callCommand "git push"
-    putStrLn $ show run
+    print run
 
   nth :: Int -> [a] -> Maybe a
   nth _ []     = Nothing
@@ -29,4 +30,4 @@ module Main where
   nth n (x:xs) = nth (n - 1) xs
 
   tt :: Integer -> String
-  tt n = "+ " ++ (show n) 
+  tt n = "+ " ++ show n 
