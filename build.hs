@@ -1,7 +1,6 @@
 #!/usr/bin/env stack
 -- stack script --system-ghc --resolver lts-9.18 --package "process"
 module Main where
-
   import System.Environment
   import System.Exit
   import System.IO
@@ -11,4 +10,4 @@ module Main where
   main = do
     run <- callCommand "stack build"
     run <- callCommand "stack exec Main"
-    putStrLn $ show run
+    print run

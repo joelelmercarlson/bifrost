@@ -1,5 +1,5 @@
 #!/usr/bin/env stack
--- stack script --system-ghc --resolver lts-9.0 --package "process"
+-- stack script --system-ghc --resolver lts-9.18 --package "process"
 module Main where
 
   import System.Environment
@@ -10,6 +10,6 @@ module Main where
   main :: IO ()
   main = do
     xs  <- getArgs
-    let cmd = "stack exec Main " ++ head xs
+    let cmd = "stack exec Main"
     run <- callCommand cmd
-    putStrLn $ show run
+    print run
