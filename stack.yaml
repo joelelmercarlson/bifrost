@@ -1,7 +1,8 @@
-resolver: lts-9.18
+resolver: lts-11.10
 packages: ['.']
 flags: {}
 extra-package-dbs: []
+allow-newer: true
 extra-deps: 
   - GLUtil-0.9.1.0
   - hpp-0.3.1.0
