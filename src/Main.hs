@@ -1,46 +1,30 @@
--- Main.hs
--- 
--- Modern OpenGL
---
--- cabal install Linear glfw-b OpenGL GLUtil aeson
---
 module Main where
 
 import Control.Applicative
 import Control.Monad (unless, when)
+import Data.Maybe
+import qualified Graphics.UI.GLFW as GLFW
 import System.Environment
 import System.Exit
 import System.IO
--- import all OpenGL libraries qualified
-import qualified Graphics.UI.GLFW as GLFW
---
+
 import Draw2
 import Control (movement)
 import Entity
+import Util (nth)
 
--- type ErrorCallback = Error -> String -> IO ()
-errorCallback :: GLFW.ErrorCallback
-errorCallback err = hPutStrLn stderr
-
--- handle keyboard input
-keyCallback :: GLFW.KeyCallback
-keyCallback window key scancode action mods = do
-  when (key == GLFW.Key'Escape && action == GLFW.KeyState'Pressed) $ GLFW.setWindowShouldClose window True
-  when (key == GLFW.Key'Q && action == GLFW.KeyState'Pressed) $ GLFW.setWindowShouldClose window True
-
--- Main.hs
 main :: IO ()
 main = do
   xs <- getArgs
-  let json = if not (null xs) then head xs else cube
+  let json = fromMaybe cube (nth 1 xs)
 
-  withWindow width height "haskell" $ \win -> do
+  withWindow width height "bifrost" $ \win -> do
     GLFW.setErrorCallback   $ Just errorCallback
     GLFW.setKeyCallback win $ Just keyCallback
 
     prog <- initResources json
 
-    mainLoop prog win entity 
+    mainLoop prog win entity
 
     GLFW.destroyWindow win
     GLFW.terminate
@@ -51,19 +35,17 @@ main = do
     entity = initEntity
     cube   = "json/cube.json"
 
+-- | forever
 mainLoop :: Resources -> GLFW.Window -> Entity -> IO ()
 mainLoop r w e = do
   draw r w e
-
   GLFW.swapBuffers w
   GLFW.pollEvents
-
-  f <- movement w e 
-
+  f <- movement w e
   q <- GLFW.windowShouldClose w
   unless q $ mainLoop r w f
 
--- | haskell approach to window creation
+-- | window creation
 withWindow :: Int -> Int -> String -> (GLFW.Window -> IO ()) -> IO ()
 withWindow width height title f = do
     GLFW.setErrorCallback $ Just simpleErrorCallback
@@ -81,3 +63,12 @@ withWindow width height title f = do
   where
     simpleErrorCallback e s =
         putStrLn $ unwords [show e, show s]
+
+-- | event callBacks
+errorCallback :: GLFW.ErrorCallback
+errorCallback err = hPutStrLn stderr
+
+keyCallback :: GLFW.KeyCallback
+keyCallback window key scancode action mods = do
+  when (key == GLFW.Key'Escape && action == GLFW.KeyState'Pressed) $ GLFW.setWindowShouldClose window True
+  when (key == GLFW.Key'Q && action == GLFW.KeyState'Pressed) $ GLFW.setWindowShouldClose window True

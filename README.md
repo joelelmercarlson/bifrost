@@ -19,12 +19,17 @@ src/Entity.hs     -- Moveable State
 src/JsonLoader.hs -- JSON loader all Assets are described in JSON
 src/ObjLoader.hs  -- OBJ loader for Blender exports
 src/ObjUtil.hs    -- Utilities for OBJ
+src/Util.hs       -- Utilities
 ```
 
 ### Requires
 * GLFW-b OpenGL GLUtil Linear aeson
 
-### Ubuntu Packages
-* freeglut3-dev libxi-dev libxcursor-dev
+### RHEL/CENTOS
+```
+make rhel
+make
+make run
+```
 
 Author: "Joel E Carlson" <joel.elmer.carlson@gmail.com>

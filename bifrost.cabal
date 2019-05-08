@@ -1,5 +1,5 @@
 name:                bifrost
-version:             0.1.1.0
+version:             0.1.2.0
 synopsis:            Modern OpenGL in Haskell
 description:         Please see README.md
 homepage:            http://github.com/joelelmercarlson/bifrost#README.md
@@ -7,7 +7,7 @@ license:             MIT
 license-file:        LICENSE.md
 author:              Joel E Carlson
 maintainer:          joel.elmer.carlson@gmail.com
-copyright:           (c) 2017 Joel E Carlson
+copyright:           (c) 2019 Joel E Carlson
 category:            Graphics
 build-type:          Simple
 cabal-version:       >=1.10
@@ -17,7 +17,6 @@ library
   exposed-modules:     Entity
   build-depends:       base
                      , linear
-  default-language:    Haskell2010
 
   hs-source-dirs:      src
   exposed-modules:     Control
@@ -25,7 +24,6 @@ library
                      , lens
                      , linear
                      , GLFW-b
-  default-language:    Haskell2010
 
   hs-source-dirs:      src
   exposed-modules:     Draw2
@@ -35,20 +33,17 @@ library
                      , GLFW-b
                      , OpenGL
                      , GLUtil
-  default-language:    Haskell2010
 
   hs-source-dirs:      src
   exposed-modules:     JsonLoader
   build-depends:       base
                      , aeson
                      , bytestring
-  default-language:    Haskell2010
 
   hs-source-dirs:      src
   exposed-modules:     ObjLoader
   build-depends:       base
                      , parsec
-  default-language:    Haskell2010
 
   hs-source-dirs:      src
   exposed-modules:     ObjUtil
@@ -58,7 +53,6 @@ library
                      , parsec
                      , containers
                      , OpenGL
-  default-language:    Haskell2010
 
 executable Main
   hs-source-dirs:      src
@@ -70,6 +64,7 @@ executable Main
                      , JsonLoader
                      , ObjLoader
                      , ObjUtil
+                     , Util
   build-depends:       base
                      , aeson
                      , bifrost
